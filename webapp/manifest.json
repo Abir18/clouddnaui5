@@ -1,0 +1,136 @@
+{
+    "_version": "1.42.0",
+    "sap.app": {
+        "id": "clouddna.walkthrough.clouddnaui5",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.8.0",
+            "toolsId": "c90d6179-1a06-4ec7-bbeb-c35f6adb1dbf"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.102.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "clouddna.walkthrough.clouddnaui5.i18n.i18n"
+                },
+                "supportedLocales": ["", "en"],
+                "fallbackLocale": ""
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "data/customers.json"
+            },
+            "genderModel": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "data/genders.json"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "clouddna.walkthrough.clouddnaui5.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Customer",
+                    "pattern": "customer/{path}",
+                    "target": ["TargetCustomer"]
+                },
+                {
+                    "name": "Main",
+                    "pattern": "",
+                    "target": ["Main"]
+                }
+            ],
+            "targets": {
+                "TargetCustomer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Customer",
+                    "viewName": "Customer"
+                },
+                "Main": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Main",
+                    "viewName": "Main"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "clouddna.walkthrough.clouddnaui5.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

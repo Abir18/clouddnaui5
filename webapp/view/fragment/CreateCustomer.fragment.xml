@@ -1,0 +1,99 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+>
+	<f:SimpleForm
+		id="create_simpleform"
+		editable="true"
+		layout="ResponsiveGridLayout"
+		title="{i18n>title}"
+		labelSpanXL="3"
+		labelSpanL="3"
+		labelSpanM="3"
+		labelSpanS="12"
+		adjustLabelSpan="false"
+		emptySpanXL="4"
+		emptySpanL="4"
+		emptySpanM="4"
+		emptySpanS="0"
+		columnsXL="1"
+		columnsL="1"
+		columnsM="1"
+		singleContainerFullSize="false"
+	>
+		<f:content>
+			<Label
+				id="create_label_customerid"
+				text="{i18n>app.customerid}"
+				labelFor="create_input_customerid"
+			/>
+			<Input id="create_input_customerid"/>
+			<Label
+				id="create_label_firstname"
+				text="{i18n>app.firstname}"
+				labelFor="create_input_firstname"
+			/>
+			<Input id="create_input_firstname"/>
+			<Label
+				id="create_label_lastname"
+				text="{i18n>app.lastname}"
+				labelFor="create_input_lastname"
+			/>
+			<Input id="create_input_lastname"/>
+			<Label
+				id="create_label_title"
+				text="{i18n>app.title}"
+				labelFor="create_input_title"
+			/>
+			<Input id="create_input_title"/>
+			<Label
+				id="create_label_gender"
+				text="{i18n>app.gender}"
+				labelFor="create_select_gender"
+			/>
+			<Select
+				id="create_select_gender"
+				selectedKey="0"
+				items="{genderModel>/genders}"
+			>
+				<items>
+					<core:Item
+						key="{genderModel>key}"
+						text="{
+							path: 'genderModel>text',
+							formatter: '.formatter.genderFormatter'
+						}"
+					/>
+				</items>
+			</Select>
+			<Label
+				id="create_label_email"
+				text="{i18n>app.email}"
+				labelFor="create_input_email"
+			/>
+			<Input id="create_input_email"/>
+			<Label
+				id="create_label_phone"
+				text="{i18n>app.phone}"
+				labelFor="create_input_phone"
+			/>
+			<Input id="create_input_phone"/>
+			<Label
+				id="create_label_website"
+				text="{i18n>app.website}"
+				labelFor="create_input_website"
+			/>
+			<Input id="create_input_website"/>
+			<VBox>
+				<Button
+					id="button_create_customer"
+					icon="sap-icon://add"
+					type="Accept"
+					text="{i18n>create}"
+					press=".onCreateCustomer"
+				/>
+			</VBox>
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

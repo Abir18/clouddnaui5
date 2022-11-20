@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="clouddna.walkthrough.clouddnaui5.controller.Customer"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<Page
+		id="page"
+		title="{i18n>title}"
+	>
+		<customHeader>
+			<OverflowToolbar>
+				<Button
+					id="customer_back_button"
+					type="Back"
+					press="onNavBack"
+					visible="{= !${editModel>/editmode}}"
+				/>
+				<Title text="{i18n>title}"/>
+				<ToolbarSpacer/>
+				<Button
+					id="app_edit_button"
+					text="{i18n>edit}"
+					type="Emphasized"
+					icon="sap-icon://edit"
+					press="onEditPressed"
+					visible="{= !${editModel>/editmode}}"
+				/>
+			</OverflowToolbar>
+		</customHeader>
+		<content>
+			<core:Fragment
+				id="app_change_fragment"
+				fragmentName="clouddna.walkthrough.clouddnaui5.view.fragment.ChangeCustomer"
+				type="XML"
+			/>
+		</content>
+		<footer>
+			<Bar id="app_bar_footer">
+				<contentRight>
+					<Button
+						id="app_save_button"
+						text="{i18n>save}"
+						icon="sap-icon://save"
+						type="Accept"
+						press="onSavePressed"
+						visible="{= ${editModel>/editmode}}"
+					/>
+					<Button
+						id="app_cancel_button"
+						text="{i18n>cancel}"
+						type="Reject"
+						icon="sap-icon://cancel"
+						press="onCancelPressed"
+						visible="{= ${editModel>/editmode}}"
+					/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
